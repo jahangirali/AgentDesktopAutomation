@@ -6,11 +6,11 @@ using NUnit.Framework;
 
 namespace AgentDesktopFramework
 {
-    public class FlightSearchPage
+    public class LoginPage
     {
         private IWebDriver Driver { get; set; }
 
-        public FlightSearchPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver)
         {
             Driver = driver;
         }
@@ -32,6 +32,14 @@ namespace AgentDesktopFramework
             passwordField.Click();
             passwordField.SendKeys("12341234");
         }
+
+        public void LoginButtonClick()
+        {
+            var loginbutton = Driver.FindElement(By.CssSelector("button[type*='submit']"));
+            loginbutton.Click();
+        }
+
+
     }
 }
    
