@@ -57,7 +57,9 @@
     <Compile Include="Pages\CustomerSearchPage.cs" />
     <Compile Include="Pages\FlightSearchPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="Tests\Tests.cs" />
     <Compile Include="Wait.cs" />
   </ItemGroup>

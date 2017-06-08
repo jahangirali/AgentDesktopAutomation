@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using AgentDesktopFramework;
+using AgentDesktopFramework.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -32,12 +33,18 @@ namespace AgentDesktopFramework.Tests
         {
 
             LoginPage loginPage = new LoginPage(driver);
-
-            loginPage.ExitButton();
             loginPage.LoginField();
             loginPage.PasswordField();
+            loginPage.LoginButtonClick();
             
-            Thread.Sleep(5);
+            Thread.Sleep(3000);
+            //driver.Manage().Timeouts().ImplicitlWait(TimeSpan.FromSeconds(5));
+
+            MenuPage menuPage = new MenuPage();
+            menuPage.FlightSearchLink();
+
+            FlightSearchPage flightSearchPage = new FlightSearchPage();
+
 
             //var flightSearchLink = driver.FindElement(By.Id("flightSearchLink"));
             //flightSearchLink.Click();
@@ -60,10 +67,10 @@ namespace AgentDesktopFramework.Tests
             //var searchButton = driver.FindElement(By.Id("flight-search-button"));
             //searchButton.Click();
 
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //Thread.Sleep(TimeSpan.FromSeconds(5));
 
-            var OKButton = driver.FindElement(By.CssSelector("#erorr-modal-type-3 button[class$='btn-accept']"));
-            OKButton.Click();
+            //var OKButton = driver.FindElement(By.CssSelector("#erorr-modal-type-3 button[class$='btn-accept']"));
+            //OKButton.Click();
 
         }
     }

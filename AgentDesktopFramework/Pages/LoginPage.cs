@@ -15,15 +15,11 @@ namespace AgentDesktopFramework
             Driver = driver;
         }
 
-        public void ExitButton()
-        {
-            var exitButton = Driver.FindElement(By.Id("close-drawer-link"));
-            exitButton.Click();
-        }
         public void LoginField()
         {
             var loginField = Driver.FindElement(By.Id("j_username"));
             loginField.Click();
+            loginField.SendKeys("Rachel");
         }
 
         public void PasswordField()
