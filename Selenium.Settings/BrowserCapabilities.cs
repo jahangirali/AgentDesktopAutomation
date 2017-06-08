@@ -15,7 +15,19 @@ namespace Selenium.Settings
                 var options = new ChromeOptions():
                 options.AddArguments("--test-type");
                 options.AddArguments("--disable-extensions");
-                return options.ToCapabilities() as DisiredCapabilities;
+                return options.ToCapabilities() as DesiredCapabilities;
+            }
+        }
+
+        public static DesiredCapabilities GetFirefoxSettings => new DesiredCapabilities().Firefox();
+
+        public static DesiredCapabilities GetInternetExplorerSettings
+        {
+            get
+            {
+                var caps = DesiredCapabilities.InternetExplorer();
+                caps.SetCapability("nativeEvents", true);
+                return caps;
             }
         }
     }
