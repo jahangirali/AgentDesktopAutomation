@@ -23,7 +23,6 @@ namespace Selenium.DataObjects
             NumberOfInfants = 0;
         }
     
-
     public string DestinationAirportCode { get; set; }
     public string DepartureAirportCode { get; set; }
     public string DestinationAirportName { get; set; }
