@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace Selenium.Settings
 {
@@ -12,7 +14,7 @@ namespace Selenium.Settings
         {
             get
             {
-                var options = new ChromeOptions():
+                var options = new ChromeOptions();
                 options.AddArguments("--test-type");
                 options.AddArguments("--disable-extensions");
                 return options.ToCapabilities() as DesiredCapabilities;

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.DataObjects", "Sel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Pages", "Selenium.Pages\Selenium.Pages.csproj", "{32F1CF1D-95C7-4889-9DB2-B389C1646BB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Tests", "Selenium.Tests\Selenium.Tests.csproj", "{10265583-4FE1-46BE-AC9A-440FE97A8A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{32F1CF1D-95C7-4889-9DB2-B389C1646BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F1CF1D-95C7-4889-9DB2-B389C1646BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F1CF1D-95C7-4889-9DB2-B389C1646BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
