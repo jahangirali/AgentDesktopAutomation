@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Protractor;
 using Selenium.Settings;
 
 namespace Selenium.Pages.Actions
 {
-    class Waits
+    public static class Waits
     {
         internal static void WaitUntilClickable(this IWebElement element, IWebDriver driver)
         {

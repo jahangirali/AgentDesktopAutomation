@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Selenium.DataObjects
 {
-    class RequestedFlight
+    public class RequestedFlight
     {
         public RequestedFlight()
         {

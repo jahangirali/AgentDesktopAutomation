@@ -61,6 +61,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Selenium.DataObjects\Selenium.DataObjects.csproj">
+      <Project>{25de65ef-842b-4091-9f44-ed9b6e8fc377}</Project>
+      <Name>Selenium.DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Selenium.Pages\Selenium.Pages.csproj">
+      <Project>{32f1cf1d-95c7-4889-9db2-b389c1646bb6}</Project>
+      <Name>Selenium.Pages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.29.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.29.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

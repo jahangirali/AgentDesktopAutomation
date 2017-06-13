@@ -7,6 +7,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using Selenium.Settings;
 
 namespace AgentDesktopFramework
 {
@@ -56,18 +57,24 @@ namespace AgentDesktopFramework
         private void SelectBrowser()
         {
             DesiredCapabilities caps = null;
-            switch "chrome":
-                caps = BrowserCapabilities.GetChromeSettings;
-            break;
-            case "firefox":
-            caps = BrowserCapabilities.GetFirefoxSettings;
-            break;
-            case "internetexplorer":
-            caps = BrowserCapabilities.GetInternetExplorerSettings;
-            break;
+            switch (SeleniumSettings.Browser.ToLower())
+            {
+
+                case "chrome":
+
+                    caps = BrowserCapabilities.GetChromeSettings;
+                    break;
+                case "firefox":
+                    caps = BrowserCapabilities.GetFirefoxSettings;
+                    break;
+                case "internetexplorer":
+                    caps = BrowserCapabilities.GetInternetExplorerSettings;
+                    break;
+            }
+            WebDriver = new RemoteWebDriver(SeleniumSettings.GridWebDriverUrl, caps, TimeSpan.FromSeconds(150));
+            WebDriver.Manage().Window.Maximize();
         }
-        WebDriver = new RemoteWebDriver(SeleniumSettings.GridWebDriverUrl, caps, TimeSpan.FromSeconds(150));
-        WebDriver.Manage().Window.Maximize();
+       
 
         private void DeleteAllCookies()
         {
