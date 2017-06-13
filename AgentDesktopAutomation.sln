@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentDesktopAutomation", "AgentDesktopFramework\AgentDesktopAutomation.csproj", "{733E8E60-064A-48AD-ADFF-B3BA2B6D6FB5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Settings", "Selenium.Settings\Selenium.Settings.csproj", "{61FC98B9-141E-4B63-916A-9071D01CF973}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Navigation", "Selenium.Navigation\Selenium.Navigation.csproj", "{F0C2043A-AC57-4BB7-8B3B-EE3837F5EF28}"
@@ -15,16 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Pages", "Selenium.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Tests", "Selenium.Tests\Selenium.Tests.csproj", "{10265583-4FE1-46BE-AC9A-440FE97A8A9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentDesktop.Pages", "AgentDesktop.Pages\AgentDesktop.Pages.csproj", "{C713D668-0ACA-4DFD-A6F1-149F2932FB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentDesktop.Tests", "AgentDesktop.Tests\AgentDesktop.Tests.csproj", "{DBDAF1EA-9E45-456D-B9E9-E13E3474074A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{733E8E60-064A-48AD-ADFF-B3BA2B6D6FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{733E8E60-064A-48AD-ADFF-B3BA2B6D6FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{733E8E60-064A-48AD-ADFF-B3BA2B6D6FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{733E8E60-064A-48AD-ADFF-B3BA2B6D6FB5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61FC98B9-141E-4B63-916A-9071D01CF973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61FC98B9-141E-4B63-916A-9071D01CF973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61FC98B9-141E-4B63-916A-9071D01CF973}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10265583-4FE1-46BE-AC9A-440FE97A8A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C713D668-0ACA-4DFD-A6F1-149F2932FB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C713D668-0ACA-4DFD-A6F1-149F2932FB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C713D668-0ACA-4DFD-A6F1-149F2932FB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C713D668-0ACA-4DFD-A6F1-149F2932FB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDAF1EA-9E45-456D-B9E9-E13E3474074A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDAF1EA-9E45-456D-B9E9-E13E3474074A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDAF1EA-9E45-456D-B9E9-E13E3474074A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDAF1EA-9E45-456D-B9E9-E13E3474074A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

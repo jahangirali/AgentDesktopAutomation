@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using Selenium.Pages.Exceptions;
 using Selenium.Settings;
 
 namespace Selenium.Pages

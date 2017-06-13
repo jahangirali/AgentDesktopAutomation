@@ -11,10 +11,10 @@ namespace Selenium.Navigation
 {
     public static class SiteNavigation
     {
-        public static PickFlight GetToPickFlightsPage(RequestedFlight requestedFlight, IWebDriver driver)
-        {
-            var homePage = new Home(driver);
-            return homePage.SearchPod.SearchForFlights();
-        }
+        //public static PickFlight GetToPickFlightsPage(RequestedFlight requestedFlight, IWebDriver driver)
+        //{
+        //    var homePage = new Home(driver);
+        //    return homePage.SearchPod.SearchForFlights();
+        //}
     }
 }
