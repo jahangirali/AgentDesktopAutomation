@@ -24,7 +24,6 @@ namespace AgentDesktopFramework
 
         private void LoginField(string username)
         {
-            //Username.SendKeys("Rachel");
             Username.SendKeys(username);
         }
 

@@ -37,14 +37,14 @@ namespace AgentDesktopFramework.Tests
             
             //driver.Manage().Timeouts().ImplicitlWait(TimeSpan.FromSeconds(5));
 
-            MenuPage menuPage = new MenuPage();
+            MenuPage menuPage = new MenuPage(driver);
             Thread.Sleep(3000);
-            menuPage.FlightSearchLink();
+            menuPage.ClickFlightSearch();
 
-            FlightSearchPage flightSearchPage = new FlightSearchPage();
+            //FlightSearchPage flightSearchPage = new FlightSearchPage(driver);
 
-            flightSearchPage.FromAirportField();
-            flightSearchPage.ToAirportField();
+            //flightSearchPage.FromAirportField();
+            //flightSearchPage.ToAirportField();
 
 
             //var flightSearchLink = driver.FindElement(By.Id("flightSearchLink"));
