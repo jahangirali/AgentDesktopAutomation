@@ -29,23 +29,41 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test01()
+        public void Test01FlightSearch()
         {
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.EnterLoginDetails("Rachel", "12341234");
-            
-            //driver.Manage().Timeouts().ImplicitlWait(TimeSpan.FromSeconds(5));
+            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
 
-            MenuPage menuPage = new MenuPage(driver);
-            Thread.Sleep(3000);
-            menuPage.ClickFlightSearch();
+            FlightSearchPage flightSearchPage = menuPage.ClickFlightSearch();
 
-            //FlightSearchPage flightSearchPage = new FlightSearchPage(driver);
 
-            //flightSearchPage.FromAirportField();
-            //flightSearchPage.ToAirportField();
+            flightSearchPage.FromAirport("LGW");
+            flightSearchPage.ToAirport("AMS");
+            flightSearchPage.addAdults("5");
+            flightSearchPage.addChildren("1");
+            flightSearchPage.addInfantsOwnSeat("1");
+            flightSearchPage.addFromDate("01/07/2017");
 
+            flightSearchPage.ClickSubmitButton();
+        }
+
+        [Test]
+        public void Test02FindCustomer()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
+
+            CustomerSearchPage customerSearchPage = menuPage.CustomerSearchPage();
+        }
+
+        [TearDown]
+
+       public void TestTearDown() 
+        {
+           // driver?.Quit();
+        }
+         
 
             //var flightSearchLink = driver.FindElement(By.Id("flightSearchLink"));
             //flightSearchLink.Click();
@@ -75,4 +93,4 @@ namespace AgentDesktopFramework.Tests
 
         }
     }
-}
+

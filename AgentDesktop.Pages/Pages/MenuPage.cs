@@ -13,6 +13,7 @@ namespace AgentDesktopFramework.Pages
     {
         private IWebDriver Driver { get; set; }
         private static readonly By PageSelector = By.Id("flightSearchLink");
+        
 
         public MenuPage(IWebDriver driver) : base(driver, PageSelector)
         {
@@ -21,9 +22,12 @@ namespace AgentDesktopFramework.Pages
 
         [FindsBy(How = How.Id, Using = "flightSearchLink")] private IWebElement FlightSearch;
 
-        public void ClickFlightSearch()
+        public FlightSearchPage ClickFlightSearch()
         {
-           FlightSearch.Click();
+            FlightSearch.Click();
+            return new FlightSearchPage(Driver);
         }
+
+        [FindsBy(How = How.Id, Using = "flightSearchLink")] private IWebElement CustomerSearchPage;
     }
 }

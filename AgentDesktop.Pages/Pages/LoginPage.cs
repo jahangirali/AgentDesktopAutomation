@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using AgentDesktopFramework.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
@@ -37,11 +38,12 @@ namespace AgentDesktopFramework
             SubmitButton.Click();
         }
 
-        public void EnterLoginDetails(string username, string password)
+        public MenuPage EnterLoginDetails(string username, string password)
         {
             LoginField(username);
             PasswordField(password);
             LoginButtonClick();
+            return new MenuPage(Driver);
         }
 
     }
