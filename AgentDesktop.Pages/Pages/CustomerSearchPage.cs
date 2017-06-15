@@ -9,7 +9,7 @@ using Selenium.Pages;
 
 namespace AgentDesktopFramework.Pages
 {
-    class CustomerSearchPage : Base
+    public class CustomerSearchPage : Base
     {
         private IWebDriver Driver { get; set; }
 
@@ -22,11 +22,30 @@ namespace AgentDesktopFramework.Pages
 
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
         [FindsBy(How = How.Id, Using = "lastName")] private IWebElement Surname;
+        [FindsBy(How = How.Id, Using = "postcode")] private IWebElement Postcode;
+        [FindsBy(How = How.Id, Using = "email")] private IWebElement Email;
 
         public CustomerSearchPage EnterFirstName(string firstName)
         {
             FirstName.SendKeys(firstName + Keys.Tab);
             return this;
         }
+
+        public CustomerSearchPage EnterLastName(string lastName)
+        {
+            Surname.SendKeys(lastName + Keys.Tab);
+            return this;
+        }
+
+        public CustomerSearchPage EnterPostcode(string postcode)
+        {
+            Postcode.SendKeys(postcode + Keys.Tab);
+            return this;
+        }
+
+
+
+
+
     }
 }

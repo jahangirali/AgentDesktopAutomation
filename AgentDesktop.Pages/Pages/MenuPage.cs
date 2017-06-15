@@ -28,6 +28,15 @@ namespace AgentDesktopFramework.Pages
             return new FlightSearchPage(Driver);
         }
 
-        [FindsBy(How = How.Id, Using = "flightSearchLink")] private IWebElement CustomerSearchPage;
+        [FindsBy(How = How.Id, Using = "customerSearchLink")] private IWebElement CustomerSearch;
+
+        public CustomerSearchPage ClickCustomerSearch()
+        {
+            CustomerSearch.Click();
+            return new CustomerSearchPage(Driver);
+        }
+
+
+
     }
 }

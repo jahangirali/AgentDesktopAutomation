@@ -69,10 +69,6 @@ namespace AgentDesktopFramework.Pages
         }
 
 
-
-
-
-
         public void ClickSubmitButton()
         {
             SearchFlights.Click();

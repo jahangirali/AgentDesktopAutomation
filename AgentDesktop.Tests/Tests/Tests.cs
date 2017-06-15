@@ -26,6 +26,7 @@ namespace AgentDesktopFramework.Tests
         {
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Maximize();
         }
 
         [Test]
@@ -36,7 +37,6 @@ namespace AgentDesktopFramework.Tests
             MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
 
             FlightSearchPage flightSearchPage = menuPage.ClickFlightSearch();
-
 
             flightSearchPage.FromAirport("LGW");
             flightSearchPage.ToAirport("AMS");
@@ -54,7 +54,11 @@ namespace AgentDesktopFramework.Tests
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
 
-            CustomerSearchPage customerSearchPage = menuPage.CustomerSearchPage();
+            CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
+
+            customerSearchPage.EnterFirstName("Ryu");
+            customerSearchPage.EnterLastName("Ali");
+            customerSearchPage.EnterPostcode("LU1");
         }
 
         [TearDown]
