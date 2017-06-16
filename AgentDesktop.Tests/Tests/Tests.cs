@@ -44,7 +44,6 @@ namespace AgentDesktopFramework.Tests
             flightSearchPage.addChildren("1");
             flightSearchPage.addInfantsOwnSeat("1");
             flightSearchPage.addFromDate("01/07/2017");
-
             flightSearchPage.ClickSubmitButton();
         }
 
@@ -56,9 +55,34 @@ namespace AgentDesktopFramework.Tests
 
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
+            customerSearchPage.ClickSearchButton();
             customerSearchPage.EnterFirstName("Ryu");
             customerSearchPage.EnterLastName("Ali");
             customerSearchPage.EnterPostcode("LU1");
+            customerSearchPage.EnterEmail("jahangir.ali@easyjet.com");
+            customerSearchPage.EnterEJPlusNumber("12345678");
+            customerSearchPage.EnterFlightNumber("012345678");
+            customerSearchPage.ClickSearchButton();
+
+        }
+
+
+        [Test]
+        public void Test03CreateCustomer()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
+
+            CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
+
+            createCustomerPage.EnterFirstName("Ryu");
+            createCustomerPage.EnterLastName("Ali");
+            createCustomerPage.EnterAddressLine1("High Street");
+            createCustomerPage.EnterTown("Luton");
+            createCustomerPage.EnterPostalCode("LU1");
+            createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
+            createCustomerPage.EnterPassengerContactNumber("0123456789");
+
         }
 
         [TearDown]

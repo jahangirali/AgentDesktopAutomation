@@ -36,6 +36,12 @@ namespace AgentDesktopFramework.Pages
             return new CustomerSearchPage(Driver);
         }
 
+        [FindsBy(How = How.Id, Using = "createCustomerLink")] private IWebElement CreateCustomer;
+        public CreateCustomerPage ClickCreateCustomer()
+        {
+            CreateCustomer.Click();
+            return new CreateCustomerPage(Driver);
+        }
 
 
     }
