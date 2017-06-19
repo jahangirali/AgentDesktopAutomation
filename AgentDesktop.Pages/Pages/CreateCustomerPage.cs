@@ -19,12 +19,15 @@ namespace AgentDesktopFramework.Pages
         {
             Driver = driver;
         }
-       
 
+        [FindsBy(How = How.CssSelector, Using = "button[data-id='title']")] private IWebElement TitleDropdown;
+        [FindsBy(How = How.CssSelector, Using = "label[for='title'] + div ul li a span")] private IList<IWebElement> Titles;
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
         [FindsBy(How = How.Id, Using = "lastName")] private IWebElement LastName;
         [FindsBy(How = How.Id, Using = "addressLine1")] private IWebElement AddressLine1;
         [FindsBy(How = How.Id, Using = "town")] private IWebElement Town;
+        [FindsBy(How = How.Id, Using = "countryField_custom")] private IWebElement CountryDropdown;
+        [FindsBy(How = How.CssSelector, Using = "button[id='countryField_custom'] + div ul li a")] private IList<IWebElement> Countries;
         [FindsBy(How = How.Id, Using = "postalCode")] private IWebElement PostalCode;
         [FindsBy(How = How.Id, Using = "email")] private IWebElement Email;
         [FindsBy(How = How.Id, Using = "passengerContactNumber")] private IWebElement PassengerContactNumber;
@@ -69,6 +72,31 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
+        public CreateCustomerPage SelectTitle(string title)
+        {
+            TitleDropdown.Click();
+            ClickTitle(title);
+            return this;
+        }
+
+        private void ClickTitle(string title)
+        {
+            Titles.Single(e => e.Text == title).Click();
+            
+        }
+
+        public CreateCustomerPage SelectCountry(string country)
+        {
+            CountryDropdown.Click();
+            ClickCountry(country);
+            return this;
+
+        }
+
+        private void ClickCountry(string country)
+        {
+            Countries[1].Click();
+        }
     }
 }
 

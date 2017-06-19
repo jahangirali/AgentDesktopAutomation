@@ -74,11 +74,12 @@ namespace AgentDesktopFramework.Tests
             MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
 
             CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
-
+            createCustomerPage.SelectTitle("Ms");
             createCustomerPage.EnterFirstName("Ryu");
             createCustomerPage.EnterLastName("Ali");
             createCustomerPage.EnterAddressLine1("High Street");
             createCustomerPage.EnterTown("Luton");
+            createCustomerPage.SelectCountry("Aruba (ABW)");
             createCustomerPage.EnterPostalCode("LU1");
             createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
             createCustomerPage.EnterPassengerContactNumber("0123456789");
