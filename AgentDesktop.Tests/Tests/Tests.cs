@@ -55,9 +55,7 @@ namespace AgentDesktopFramework.Tests
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
-            loginPage.EnterLoginDetails(new UserLogin());
-            
-            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer());
+           customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer());
         }
 
 
