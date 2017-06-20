@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AgentDesktop.Pages.Pages;
 using NUnit.Framework;
 using AgentDesktopFramework;
 using AgentDesktopFramework.Pages;
@@ -34,7 +35,7 @@ namespace AgentDesktopFramework.Tests
         {
 
             LoginPage loginPage = new LoginPage(driver);
-            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
 
             FlightSearchPage flightSearchPage = menuPage.ClickFlightSearch();
 
@@ -51,19 +52,12 @@ namespace AgentDesktopFramework.Tests
         public void Test02FindCustomer()
         {
             LoginPage loginPage = new LoginPage(driver);
-            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
-
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
-            customerSearchPage.ClickSearchButton();
-            customerSearchPage.EnterFirstName("Ryu");
-            customerSearchPage.EnterLastName("Ali");
-            customerSearchPage.EnterPostcode("LU1");
-            customerSearchPage.EnterEmail("jahangir.ali@easyjet.com");
-            customerSearchPage.EnterEJPlusNumber("12345678");
-            customerSearchPage.EnterFlightNumber("012345678");
-            customerSearchPage.ClickSearchButton();
-
+            loginPage.EnterLoginDetails(new UserLogin());
+            
+            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer());
         }
 
 
@@ -71,18 +65,18 @@ namespace AgentDesktopFramework.Tests
         public void Test03CreateCustomer()
         {
             LoginPage loginPage = new LoginPage(driver);
-            MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
+           // MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
 
-            CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
-            createCustomerPage.SelectTitle("Ms");
-            createCustomerPage.EnterFirstName("Ryu");
-            createCustomerPage.EnterLastName("Ali");
-            createCustomerPage.EnterAddressLine1("High Street");
-            createCustomerPage.EnterTown("Luton");
-            createCustomerPage.SelectCountry("Aruba (ABW)");
-            createCustomerPage.EnterPostalCode("LU1");
-            createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
-            createCustomerPage.EnterPassengerContactNumber("0123456789");
+            //CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
+            //createCustomerPage.SelectTitle("Ms");
+            //createCustomerPage.EnterFirstName("Ryu");
+            //createCustomerPage.EnterLastName("Ali");
+            //createCustomerPage.EnterAddressLine1("High Street");
+            //createCustomerPage.EnterTown("Luton");
+            //createCustomerPage.SelectCountry("Aruba (ABW)");
+            //createCustomerPage.EnterPostalCode("LU1");
+            //createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
+            //createCustomerPage.EnterPassengerContactNumber("0123456789");
 
         }
 

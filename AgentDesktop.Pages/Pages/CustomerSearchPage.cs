@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AgentDesktop.Pages.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Selenium.Pages;
@@ -28,8 +29,7 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "easyjetPlusCardNumber")] private IWebElement EJPlusNumber;
         [FindsBy(How = How.Id, Using = "flightClubNumber")] private IWebElement FlightNumber;
         [FindsBy(How = How.CssSelector, Using = "button[data-container='customerSearchForm']")] private IWebElement SearchButton;
-        //  [FindsBy(How = How.CssSelector, Using = "button[class='btn btn-primary btn-block']")] private IWebElement SubmitButton;
-        //class="custom-button primary on-dark search-for-customer"
+        
 
         public CustomerSearchPage SelectTitle(string title)
         {
@@ -45,7 +45,10 @@ namespace AgentDesktopFramework.Pages
 
         public CustomerSearchPage EnterLastName(string lastName)
         {
-            Surname.SendKeys(lastName + Keys.Tab);
+            if (lastName != String.Empty)
+            {
+                Surname.SendKeys(lastName + Keys.Tab);
+            }
             return this;
         }
 
@@ -78,6 +81,17 @@ namespace AgentDesktopFramework.Pages
         {
             SearchButton.Click();
             
+        }
+
+        public void EnterCustomerSearchDetails(SearchforCustomer searchforCustomer)
+        {
+            EnterFirstName(searchforCustomer.FirstName);
+            EnterLastName(searchforCustomer.LastName);
+            EnterPostcode(searchforCustomer.Postcode);
+            EnterEmail(searchforCustomer.Email);
+            EnterEJPlusNumber(searchforCustomer.EJPlusNumber);
+            EnterFlightNumber(searchforCustomer.FlightNumber);
+
         }
     }
 }

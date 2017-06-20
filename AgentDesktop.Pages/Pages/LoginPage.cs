@@ -38,14 +38,23 @@ namespace AgentDesktopFramework
             SubmitButton.Click();
         }
 
-        public MenuPage EnterLoginDetails(string username, string password)
+        //public MenuPage EnterLoginDetails(string username, string password)
+        //{
+        //    LoginField(username);
+        //    PasswordField(password);
+        //    LoginButtonClick();
+        //    return new MenuPage(Driver);
+        //}
+
+        public MenuPage EnterLoginDetails(UserLogin userLogin)
         {
-            LoginField(username);
-            PasswordField(password);
+            LoginField(userLogin.UserName);
+            PasswordField(userLogin.UserPassword);
             LoginButtonClick();
             return new MenuPage(Driver);
         }
 
     }
+
 }
    
