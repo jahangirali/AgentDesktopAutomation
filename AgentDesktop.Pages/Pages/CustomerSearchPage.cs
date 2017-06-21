@@ -20,10 +20,13 @@ namespace AgentDesktopFramework.Pages
         {
             Driver = driver;
         }
-
-        [FindsBy(How = How.CssSelector, Using = "button[data-id='title']")] private IWebElement Title;
+        [FindsBy(How = How.CssSelector, Using = "button[data-id='title']")] private IWebElement TitleDropdown;
+        [FindsBy(How = How.CssSelector, Using = "button[data-id='title'] + div ul li a span")] private IList<IWebElement> Titles;
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
         [FindsBy(How = How.Id, Using = "lastName")] private IWebElement Surname;
+        [FindsBy(How = How.Id, Using = "countryField_custom")] private IWebElement CountryDropdown;
+        [FindsBy(How = How.CssSelector, Using = "input[type='search']")] private IWebElement CountryTextBox;
+        [FindsBy(How = How.CssSelector, Using = "button[id='countryField_custom'] + div ul li a")] private IList<IWebElement> Country;
         [FindsBy(How = How.Id, Using = "postcode")] private IWebElement Postcode;
         [FindsBy(How = How.Id, Using = "email")] private IWebElement Email;
         [FindsBy(How = How.Id, Using = "easyjetPlusCardNumber")] private IWebElement EJPlusNumber;
@@ -31,10 +34,18 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.CssSelector, Using = "button[data-container='customerSearchForm']")] private IWebElement SearchButton;
         
 
+     
         public CustomerSearchPage SelectTitle(string title)
         {
-            Title.Click();
+            TitleDropdown.Click();
+            ClickTitle(title);
             return this;
+        }
+
+        private void ClickTitle(string title)
+        {
+            Titles.Single(e => e.Text == title).Click();
+
         }
 
         public CustomerSearchPage EnterFirstName(string firstName)
@@ -52,6 +63,25 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
+        public CustomerSearchPage SelectCountry(string country)
+        {
+            CountryDropdown.Click();
+            ClickCountry(country);
+           
+            return this;
+        }
+        private void ClickCountry(string country)
+        {
+            Country.Single(e => e.Text == country).Click();
+
+        }
+
+        private void EnterCountry(string country)
+        {
+            CountryDropdown.Click();
+            CountryTextBox.SendKeys(country +Keys.Enter +Keys.Enter);
+
+        }
         public CustomerSearchPage EnterPostcode(string postcode)
         {
             Postcode.SendKeys(postcode + Keys.Tab);
@@ -77,21 +107,25 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
-        public void ClickSearchButton()
+        private void ClickSearchButton()
         {
             SearchButton.Click();
             
         }
 
-        public void EnterCustomerSearchDetails(SearchforCustomer searchforCustomer)
+        public CustomerSearchPage EnterCustomerSearchDetails(SearchforCustomer searchforCustomer)
         {
+            SelectTitle(searchforCustomer.Title);
             EnterFirstName(searchforCustomer.FirstName);
             EnterLastName(searchforCustomer.LastName);
+            EnterCountry(searchforCustomer.Country);
             EnterPostcode(searchforCustomer.Postcode);
             EnterEmail(searchforCustomer.Email);
             EnterEJPlusNumber(searchforCustomer.EJPlusNumber);
             EnterFlightNumber(searchforCustomer.FlightNumber);
 
+            ClickSearchButton();
+            return this;
         }
     }
 }

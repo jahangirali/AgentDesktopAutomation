@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using AgentDesktopFramework.Pages;
 
-namespace AgentDesktop.Pages.Pages
+namespace AgentDesktop.Pages.Data
 {
-    public class SearchforCustomer
+    class SearchForBooking
     {
-        public SearchforCustomer()
+        public SearchForBooking()
         {
-            Title = "Mr";
+            Title = "Mrs";
             FirstName = "Ryu";
             LastName = "Ali";
             Postcode = "LU1";
-            Country = "AFG";
             Email = "jahangir.ali@easyjet.com";
-            EJPlusNumber = "12345678";
-            FlightNumber = "012345678";
-                       
+            Postcode = "12345678";
+            ContactNumber = "012345678";
+            DateOfBirth = "01/01/1980";
+            TravelDocType = "Passport";
+            TravelDocRef = "X12345678";
         }
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Postcode { get; set; }
-        public string Country { get; set; }
         public string Email { get; set; }
-        public string EJPlusNumber { get; set; }
-        public string FlightNumber { get; set; }
+        public string ContactNumber { get; set; }
+        public string DateOfBirth { get; set; }
+        public string TravelDocType { get; set; }
+        public string TravelDocRef { get; set; }
+
+
     }
 }

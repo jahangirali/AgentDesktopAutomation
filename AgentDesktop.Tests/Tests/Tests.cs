@@ -22,6 +22,8 @@ namespace AgentDesktopFramework.Tests
         //private String url = "https://www.easyjet.com/en";
         private String url = "https://ad-in01-frontend.fcp.easyjet.local/login?userID=defaultagent&password=12341234&site=agentDesktop";
 
+        public object ClickSearchButton { get; private set; }
+
         [SetUp]
         public void Setup()
         {
@@ -31,7 +33,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test01FlightSearch()
+        public void Test010FlightSearch()
         {
 
             LoginPage loginPage = new LoginPage(driver);
@@ -49,15 +51,27 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test02FindCustomer()
+        public void Test020FindCustomer()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
-           customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer());
+           // var search = new SearchforCustomer() { Title = "Mrs", FirstName = "Kate"};
+
+           customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() {Title = "Mrs"});
+            
         }
 
+        [Test]
+        public void Test022FindCustomer()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
+            CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
+
+            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() { Title = "Infant" });
+        }
 
         [Test]
         public void Test03CreateCustomer()
@@ -77,41 +91,24 @@ namespace AgentDesktopFramework.Tests
             //createCustomerPage.EnterPassengerContactNumber("0123456789");
 
         }
+        [Test]
+        public void Test05BookingSearchtest()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
 
+            BookingSearchPage bookingSearchPage = menuPage.ClickCustomerSearch();
+
+        }
         [TearDown]
 
        public void TestTearDown() 
         {
-           // driver?.Quit();
+            //driver?.Quit();
         }
          
 
-            //var flightSearchLink = driver.FindElement(By.Id("flightSearchLink"));
-            //flightSearchLink.Click();
-
-            //var fromAirportField = driver.FindElement(By.Id("from-airport"));
-            //fromAirportField.Click();
-            //fromAirportField.SendKeys("LGW" + Keys.Tab);
-
-            //var toAirportField = driver.FindElement(By.Id("to-airport"));
-            //toAirportField.Click();
-            //toAirportField.SendKeys("AMS" + Keys.Tab);
-
-            //var fromDateField = driver.FindElement(By.Id("from-date"));
-            //fromDateField.Click();
-
-            //var noOfAdult = driver.FindElement(By.Id("adults-a"));
-            //noOfAdult.Click();
-            //noOfAdult.SendKeys("3" + Keys.Tab);
-
-            //var searchButton = driver.FindElement(By.Id("flight-search-button"));
-            //searchButton.Click();
-
-            //Thread.Sleep(TimeSpan.FromSeconds(5));
-
-            //var OKButton = driver.FindElement(By.CssSelector("#erorr-modal-type-3 button[class$='btn-accept']"));
-            //OKButton.Click();
-
         }
-    }
+
+ }
 
