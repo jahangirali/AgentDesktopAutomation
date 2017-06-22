@@ -15,12 +15,13 @@ namespace AgentDesktop.Pages.Data
             LastName = "Ali";
             Postcode = "LU1";
             Email = "jahangir.ali@easyjet.com";
-            Postcode = "12345678";
+            Postcode = "LU1";
             ContactNumber = "012345678";
             DateOfBirth = "01/01/1980";
             TravelDocType = "Passport";
             TravelDocRef = "X12345678";
         }
+
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -25,7 +25,7 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
         [FindsBy(How = How.Id, Using = "lastName")] private IWebElement LastName;
         [FindsBy(How = How.Id, Using = "email")] private IWebElement Email;
-        [FindsBy(How = How.Id, Using = "postalcode")] private IWebElement Postcode;
+        [FindsBy(How = How.Id, Using = "postalCode")] private IWebElement Postcode;
         [FindsBy(How = How.Id, Using = "contactNumber")] private IWebElement ContactNumber;
         [FindsBy(How = How.Id, Using = "passengerDateOfBirth")] private IWebElement DateOfBirth;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='travelDocType']")] private IWebElement TravelDocType;
@@ -59,19 +59,55 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
+        public BookingSearchPage EnterEmail(string email)
+        {
+            Email.SendKeys(email + Keys.Tab);
+            return this;
+        }
 
+        public BookingSearchPage EnterPostcode(string postcode)
+        {
+            Postcode.SendKeys(postcode +Keys.Tab);
+            return this;
+        }
+
+        public BookingSearchPage EnterContactNumber(string contactNumber)
+        {
+            ContactNumber.SendKeys(contactNumber + Keys.Tab);
+            return this;
+        }
+
+        public BookingSearchPage EnterDateOfBirth(string dateOfBirth)
+        {
+            DateOfBirth.SendKeys(dateOfBirth +Keys.Tab);
+            return this;
+        }
+
+
+        public BookingSearchPage EnterTravelDocType(string travelDocType)
+        {
+            TravelDocType.SendKeys(travelDocType+ Keys.Tab +Keys.Enter +Keys.Tab);
+            return this;
+        }
+
+        public BookingSearchPage EnterTravelDocRef(string travelDocRef)
+        {
+            TravelDocRef.SendKeys(travelDocRef + Keys.Enter);
+            return this;
+        }
 
         public BookingSearchPage EnterBookingSearchDetails(SearchForBooking searchForBooking)
         {
-            SelectTitle(searchForBooking.Title);
+            //SelectTitle(searchForBooking.Title);
             EnterFirstName(searchForBooking.FirstName);
             EnterLastName(searchForBooking.LastName);
             EnterEmail(searchForBooking.Email);
             EnterPostcode(searchForBooking.Postcode);
-            EnterEmail(searchForBooking.ContactNumber);
-            EnterEJPlusNumber(searchForBooking.DateOfBirth);
-            EnterFlightNumber(searchForBooking.TravelDocType);
-
+            EnterContactNumber(searchForBooking.ContactNumber);
+            EnterDateOfBirth(searchForBooking.DateOfBirth);
+            EnterTravelDocType(searchForBooking.TravelDocType);
+            EnterTravelDocRef(searchForBooking.TravelDocRef);
+            
             //ClickSearchButton();
             return this;
         }

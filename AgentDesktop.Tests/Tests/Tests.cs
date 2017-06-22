@@ -97,10 +97,9 @@ namespace AgentDesktopFramework.Tests
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
-
             BookingSearchPage bookingSearchPage = menuPage.ClickBookingSearch();
 
-            SearchForBooking.
+            bookingSearchPage.EnterBookingSearchDetails(new SearchForBooking());
 
         }
         [TearDown]
