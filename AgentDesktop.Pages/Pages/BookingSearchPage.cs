@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AgentDesktop.Pages.Data;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Selenium.Pages;
 
 namespace AgentDesktopFramework.Pages
 {
-    class BookingSearchPage : Base
+    public class BookingSearchPage : Base
     {
         private IWebDriver Driver { get; set; }
 
@@ -22,7 +23,7 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "searchTitle")] private IWebElement Title;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='title'] + div ul li a span")] private IList<IWebElement> Titles;
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
-        [FindsBy(How = How.Id, Using = "lastName")] private IWebElement Surname;
+        [FindsBy(How = How.Id, Using = "lastName")] private IWebElement LastName;
         [FindsBy(How = How.Id, Using = "email")] private IWebElement Email;
         [FindsBy(How = How.Id, Using = "postalcode")] private IWebElement Postcode;
         [FindsBy(How = How.Id, Using = "contactNumber")] private IWebElement ContactNumber;
@@ -51,5 +52,29 @@ namespace AgentDesktopFramework.Pages
             FirstName.SendKeys(firstName + Keys.Tab);
             return this;
         }
-    }
+
+        public BookingSearchPage EnterLastName(string lastName)
+        {
+            LastName.SendKeys(lastName + Keys.Tab);
+            return this;
+        }
+
+
+
+        public BookingSearchPage EnterBookingSearchDetails(SearchForBooking searchForBooking)
+        {
+            SelectTitle(searchForBooking.Title);
+            EnterFirstName(searchForBooking.FirstName);
+            EnterLastName(searchForBooking.LastName);
+            EnterEmail(searchForBooking.Email);
+            EnterPostcode(searchForBooking.Postcode);
+            EnterEmail(searchForBooking.ContactNumber);
+            EnterEJPlusNumber(searchForBooking.DateOfBirth);
+            EnterFlightNumber(searchForBooking.TravelDocType);
+
+            //ClickSearchButton();
+            return this;
+        }
+    
+}
 }

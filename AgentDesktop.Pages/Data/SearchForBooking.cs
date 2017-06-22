@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgentDesktop.Pages.Data
 {
-    class SearchForBooking
+    public class SearchForBooking
     {
         public SearchForBooking()
         {

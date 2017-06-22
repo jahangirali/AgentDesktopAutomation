@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AgentDesktop.Pages.Data;
 using AgentDesktop.Pages.Pages;
 using NUnit.Framework;
 using AgentDesktopFramework;
@@ -97,7 +98,9 @@ namespace AgentDesktopFramework.Tests
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
 
-            BookingSearchPage bookingSearchPage = menuPage.ClickCustomerSearch();
+            BookingSearchPage bookingSearchPage = menuPage.ClickBookingSearch();
+
+            SearchForBooking.
 
         }
         [TearDown]

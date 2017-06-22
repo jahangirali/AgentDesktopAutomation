@@ -43,8 +43,8 @@ namespace AgentDesktopFramework.Pages
             return new CreateCustomerPage(Driver);
         }
 
-        [FindsBy(How = How.CssSelector, Using = "/booking-search")] private IWebElement BookingSearch;
-
+        [FindsBy(How = How.CssSelector, Using = "a[href='/booking-search']")] private IWebElement BookingSearch;
+        // [FindsBy(How = How.CssSelector, Using = "button[data-id='title'] + div ul li a span")] private IList<IWebElement> Titles;
         public BookingSearchPage ClickBookingSearch()
         {
             BookingSearch.Click();
