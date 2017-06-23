@@ -10,7 +10,7 @@ namespace AgentDesktop.Pages.Data
     {
         public SearchForBooking()
         {
-            Title = "Mrs";
+            Title = "Mr";
             FirstName = "Ryu";
             LastName = "Ali";
             Postcode = "LU1";

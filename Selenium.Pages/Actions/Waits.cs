@@ -9,20 +9,20 @@ namespace Selenium.Pages.Actions
 {
     public static class Waits
     {
-        internal static void WaitUntilClickable(this IWebElement element, IWebDriver driver)
+        public static void WaitUntilClickable(this IWebElement element, IWebDriver driver)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(Timeouts.ControlTimeout))
                 .Until(ExpectedConditions.ElementToBeClickable(element));
         }
 
-        internal static void WaitForDrawerToClose(IWebDriver driver)
+        public static void WaitForDrawerToClose(IWebDriver driver)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(Timeouts.ControlTimeout))
                 .Until(ExpectedConditions.ElementExists(
                     By.CssSelector("div[class='drawer drawer-angular anim-slide-rtr ng-hide']")));
         }
 
-        internal static void WaitForAngularToFinish(IWebDriver driver)
+        public static void WaitForAngularToFinish(IWebDriver driver)
         {
             try
             {

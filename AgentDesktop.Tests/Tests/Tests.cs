@@ -78,39 +78,41 @@ namespace AgentDesktopFramework.Tests
         public void Test03CreateCustomer()
         {
             LoginPage loginPage = new LoginPage(driver);
-           // MenuPage menuPage = loginPage.EnterLoginDetails("Rachel", "12341234");
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
 
-            //CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
-            //createCustomerPage.SelectTitle("Ms");
-            //createCustomerPage.EnterFirstName("Ryu");
-            //createCustomerPage.EnterLastName("Ali");
-            //createCustomerPage.EnterAddressLine1("High Street");
-            //createCustomerPage.EnterTown("Luton");
-            //createCustomerPage.SelectCountry("Aruba (ABW)");
-            //createCustomerPage.EnterPostalCode("LU1");
-            //createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
-            //createCustomerPage.EnterPassengerContactNumber("0123456789");
+            CreateCustomerPage createCustomerPage = menuPage.ClickCreateCustomer();
+            createCustomerPage.SelectTitle("Ms");
+            createCustomerPage.EnterFirstName("Ryu");
+            createCustomerPage.EnterLastName("Ali");
+            createCustomerPage.EnterAddressLine1("High Street");
+            createCustomerPage.EnterTown("Luton");
+            createCustomerPage.SelectCountry("Aruba (ABW)");
+            createCustomerPage.EnterPostalCode("LU1");
+            createCustomerPage.EnterEmail("jahangir.ali@easyjet.com");
+            createCustomerPage.EnterPassengerContactNumber("0123456789");
 
         }
         [Test]
-        public void Test05BookingSearchtest()
+        public void Test05BookingSearchTest()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             BookingSearchPage bookingSearchPage = menuPage.ClickBookingSearch();
 
             bookingSearchPage.EnterBookingSearchDetails(new SearchForBooking());
+            
+            Assert.IsTrue(bookingSearchPage.DoesErrorMessageDisplay());
 
         }
         [TearDown]
 
        public void TestTearDown() 
         {
-            //driver?.Quit();
+            driver?.Quit();
         }
-         
 
-        }
+
+    }
 
  }
 
