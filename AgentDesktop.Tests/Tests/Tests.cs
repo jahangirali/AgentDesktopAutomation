@@ -34,7 +34,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test010FlightSearch()
+        public void Test010FS_Single()
         {
 
             LoginPage loginPage = new LoginPage(driver);
@@ -49,10 +49,33 @@ namespace AgentDesktopFramework.Tests
             flightSearchPage.addInfantsOwnSeat("1");
             flightSearchPage.addFromDate("01/07/2017");
             flightSearchPage.ClickSubmitButton();
+
+            
         }
 
         [Test]
-        public void Test020FindCustomer()
+        public void Test011FS_Return()
+        {
+
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
+
+            FlightSearchPage flightSearchPage = menuPage.ClickFlightSearch();
+
+            flightSearchPage.FromAirport("LTN");
+            flightSearchPage.ToAirport("EDI");
+            flightSearchPage.addAdults("2");
+            flightSearchPage.addChildren("1");
+            flightSearchPage.addInfantsOwnSeat("1");
+            flightSearchPage.addFromDate("01/08/2017");
+            flightSearchPage.addToDate("08/08/2017");
+            flightSearchPage.ClickSubmitButton();
+
+            Thread.Sleep(5000);
+        }
+
+        [Test]
+        public void Test020FC_A()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
@@ -64,6 +87,7 @@ namespace AgentDesktopFramework.Tests
             
         }
 
+      
         [Test]
         public void Test022FindCustomer()
         {
@@ -72,6 +96,17 @@ namespace AgentDesktopFramework.Tests
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
             customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() { Title = "Infant" });
+        }
+        [Test]
+        public void Test029FC_ClearSearch()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
+            CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
+
+            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() { Title = "Mrs" });
+            customerSearchPage.ClickClearButton();
+
         }
 
         [Test]

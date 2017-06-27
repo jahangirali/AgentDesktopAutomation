@@ -28,6 +28,7 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "child-2-15")] private IWebElement ChildPassenger;
         [FindsBy(How = How.Id, Using = "infant-seats")] private IWebElement InfantPassenger;
         [FindsBy(How = How.Id, Using = "from-date")] private IWebElement FromDate;
+        [FindsBy(How = How.Id, Using = "to-date")] private IWebElement ToDate;
 
         public FlightSearchPage FromAirport(string fromAirport)
         {
@@ -65,6 +66,13 @@ namespace AgentDesktopFramework.Pages
         {
             FromDate.Clear();
             FromDate.SendKeys(addOriginDate);
+            return this;
+        }
+
+        public FlightSearchPage addToDate(string addReturnDate)
+        {
+            ToDate.Clear();
+            ToDate.SendKeys(addReturnDate);
             return this;
         }
 

@@ -32,8 +32,7 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "easyjetPlusCardNumber")] private IWebElement EJPlusNumber;
         [FindsBy(How = How.Id, Using = "flightClubNumber")] private IWebElement FlightNumber;
         [FindsBy(How = How.CssSelector, Using = "button[data-container='customerSearchForm']")] private IWebElement SearchButton;
-        
-
+        [FindsBy(How = How.Id, Using = "clearCustomerSearchForm")] private IWebElement ClearButton;
      
         public CustomerSearchPage SelectTitle(string title)
         {
@@ -107,6 +106,11 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
+        public void ClickClearButton()
+        {
+            ClearButton.Click();
+        }
+
         private void ClickSearchButton()
         {
             SearchButton.Click();
@@ -127,5 +131,7 @@ namespace AgentDesktopFramework.Pages
             ClickSearchButton();
             return this;
         }
+
+      
     }
 }
