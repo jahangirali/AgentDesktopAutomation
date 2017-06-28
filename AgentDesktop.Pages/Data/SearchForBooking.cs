@@ -8,8 +8,16 @@ namespace AgentDesktop.Pages.Data
 {
     public class SearchForBooking
     {
+        public enum BookingType
+        {
+            Booker,
+            Passenger,
+            Both
+        };
+
         public SearchForBooking()
         {
+            Booker = BookingType.Booker;
             Title = "Mr";
             FirstName = "Ryu";
             LastName = "Ali";
@@ -22,6 +30,7 @@ namespace AgentDesktop.Pages.Data
             TravelDocRef = "X12345678";
         }
 
+        public BookingType Booker { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

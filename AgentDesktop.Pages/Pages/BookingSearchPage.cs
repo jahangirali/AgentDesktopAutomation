@@ -24,6 +24,9 @@ namespace AgentDesktopFramework.Pages
             Driver = webDriver;
         }
 
+        [FindsBy(How = How.CssSelector, Using = "#searchBooker + label")] private IWebElement Booker;
+        [FindsBy(How = How.CssSelector, Using = "#searchPassenger + label")] private IWebElement Passenger;
+        [FindsBy(How = How.CssSelector, Using = "#searchBoth + label")] private IWebElement Both;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='searchTitle']")] private IWebElement Title;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='searchTitle'] + div ul li a span")] private IList<IWebElement> Titles;
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
@@ -36,26 +39,38 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.CssSelector, Using = "button[data-id='travelDocType'] + div ul li a span")] private IList<IWebElement> TravelDocTypeList;
         [FindsBy(How = How.Id, Using = "travelDocRef")] private IWebElement TravelDocRef;
         [FindsBy(How = How.Id, Using = "resultContainer")] private IWebElement ErrorMessage;
+        [FindsBy(How = How.CssSelector, Using = "button[type='submit']")] private IWebElement SearchButton;
 
+        private void SelectBookingType(SearchForBooking.BookingType bookingType)
+        {
+            switch (bookingType)
+            {
+                case SearchForBooking.BookingType.Booker:
+                    Booker.Click();
+                    break;
+                case SearchForBooking.BookingType.Passenger:
+                    Passenger.Click();
+                    break;
+                case SearchForBooking.BookingType.Both:
+                    Both.Click();
+                    break;
+            }
+        }
 
-
-        public BookingSearchPage SelectTitle(string title)
+        private void SelectTitle(string title)
         {
             Title.Click();
             ClickTitle(title);
-            return this;
         }
 
         private void ClickTitle(string title)
         {
-            Titles.Single(e => e.Text == title).Click();
-            //Title.SendKeys(Keys.Enter);
+            Titles.Single(e => e.Text == title).Click();  
         }
 
-        public BookingSearchPage EnterFirstName(string firstName)
+        private void EnterFirstName(string firstName)
         {
             FirstName.SendKeys(firstName + Keys.Tab);
-            return this;
         }
 
         public BookingSearchPage EnterLastName(string lastName)
@@ -64,41 +79,40 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
-        public BookingSearchPage EnterEmail(string email)
+        private void EnterEmail(string email)
         {
             Email.SendKeys(email + Keys.Tab);
-            return this;
         }
 
-        public BookingSearchPage EnterPostcode(string postcode)
+        private void EnterPostcode(string postcode)
         {
             Postcode.SendKeys(postcode +Keys.Tab);
-            return this;
         }
 
-        public BookingSearchPage EnterContactNumber(string contactNumber)
+        private void EnterContactNumber(string contactNumber)
         {
             ContactNumber.SendKeys(contactNumber + Keys.Tab);
-            return this;
         }
 
-        public BookingSearchPage EnterDateOfBirth(string dateOfBirth)
+        private void EnterDateOfBirth(string dateOfBirth)
         {
             DateOfBirth.SendKeys(dateOfBirth +Keys.Tab);
-            return this;
         }
 
-
-        public BookingSearchPage EnterTravelDocType(string travelDocType)
+        private void EnterTravelDocType(string travelDocType)
         {
             TravelDocType.SendKeys(travelDocType+ Keys.Tab +Keys.Enter +Keys.Tab);
-            return this;
         }
 
-        public BookingSearchPage EnterTravelDocRef(string travelDocRef)
+        private void EnterTravelDocRef(string travelDocRef)
         {
             TravelDocRef.SendKeys(travelDocRef + Keys.Enter);
-            return this;
+           
+        }
+
+        private void ClickSearchButton()
+        {
+            SearchButton.Click();
         }
 
         public bool DoesErrorMessageDisplay()
@@ -106,12 +120,11 @@ namespace AgentDesktopFramework.Pages
             //Console.WriteLine(ErrorMessage.Text);
             ErrorMessage.WaitUntilClickable(Driver);
             return ErrorMessage.Text.Trim() == SearchResultErrorMessage;
-
-            
         }
         
         public BookingSearchPage EnterBookingSearchDetails(SearchForBooking searchForBooking)
         {
+            SelectBookingType(searchForBooking.Booker);
             SelectTitle(searchForBooking.Title);
             EnterFirstName(searchForBooking.FirstName);
             EnterLastName(searchForBooking.LastName);
@@ -125,6 +138,12 @@ namespace AgentDesktopFramework.Pages
             //ClickSearchButton();
             return this;
         }
-    
-}
+
+        public BookingSearchPage EnterBookingSearchDetailsBooker(SearchForBooking searchForBooking)
+        {
+            SelectBookingType(searchForBooking.Booker);
+            ClickSearchButton();
+            return this;
+        }
+    }
 }

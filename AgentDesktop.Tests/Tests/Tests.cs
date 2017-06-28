@@ -34,7 +34,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test010FS_Single()
+        public void FlightSearch_Single()
         {
 
             LoginPage loginPage = new LoginPage(driver);
@@ -54,7 +54,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test011FS_Return()
+        public void FlightSearch_Return()
         {
 
             LoginPage loginPage = new LoginPage(driver);
@@ -75,7 +75,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test020FC_A()
+        public void FindCustomerByTitle()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
@@ -89,16 +89,16 @@ namespace AgentDesktopFramework.Tests
 
       
         [Test]
-        public void Test022FindCustomer()
+        public void FindCustomerByLastName()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
 
-            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() { Title = "Infant" });
+            customerSearchPage.EnterCustomerSearchDetails(new SearchforCustomer() { LastName = "Ali" });
         }
         [Test]
-        public void Test029FC_ClearSearch()
+        public void FindCustomerClearSearch()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
@@ -110,7 +110,7 @@ namespace AgentDesktopFramework.Tests
         }
 
         [Test]
-        public void Test03CreateCustomer()
+        public void CreateCustomer()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
@@ -128,23 +128,34 @@ namespace AgentDesktopFramework.Tests
 
         }
         [Test]
-        public void Test05BookingSearchTest()
+        public void BookingSearchErrorMessageDisplays()
         {
             LoginPage loginPage = new LoginPage(driver);
             MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
             BookingSearchPage bookingSearchPage = menuPage.ClickBookingSearch();
-
+            
             bookingSearchPage.EnterBookingSearchDetails(new SearchForBooking());
             
             Assert.IsTrue(bookingSearchPage.DoesErrorMessageDisplay());
 
         }
-        [TearDown]
 
-       public void TestTearDown() 
+        [Test]
+        public void SearchBooker()
         {
-            driver?.Quit();
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
+            BookingSearchPage bookingSearchPage = menuPage.ClickBookingSearch();
+
+            bookingSearchPage.EnterBookingSearchDetailsBooker(new SearchForBooking());
+
         }
+        //[TearDown]
+
+       //public void TestTearDown() 
+       // {
+       //     driver?.Quit();
+       // }
 
 
     }
