@@ -1,5 +1,6 @@
 ﻿namespace AgentDesktopFramework
 {
+    
     public class UserLogin
     {
         public UserLogin()

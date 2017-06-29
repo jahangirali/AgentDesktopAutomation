@@ -55,13 +55,18 @@ namespace AgentDesktopFramework.Pages
             return this;
         }
 
+        //public FlightSearchPage addInfantsOwnSeat(string addInfantsOnSeat)
+        //{
+        //    InfantPassenger.SendKeys(addInfantsOnSeat);
+        //    return this;
+        //}
+
         public FlightSearchPage addInfantsOwnSeat(string addInfantsOnSeat)
         {
             InfantPassenger.SendKeys(addInfantsOnSeat);
             return this;
         }
 
-        
         public FlightSearchPage addFromDate(string addOriginDate)
         {
             FromDate.Clear();
@@ -81,22 +86,5 @@ namespace AgentDesktopFramework.Pages
         {
             SearchFlights.Click();
         }
-
-
-
-    //var fromDateField = driver.FindElement(By.Id("from-date"));
-    //fromDateField.Click();
-
-    //var noOfAdult = driver.FindElement(By.Id("adults-a"));
-    //noOfAdult.Click();
-    //noOfAdult.SendKeys("3" + Keys.Tab);
-
-    //var searchButton = driver.FindElement(By.Id("flight-search-button"));
-    //searchButton.Click();
-
-    //Thread.Sleep(TimeSpan.FromSeconds(5));
-
-    //var OKButton = driver.FindElement(By.CssSelector("#erorr-modal-type-3 button[class$='btn-accept']"));
-    //OKButton.Click();
-}
+    }
 }

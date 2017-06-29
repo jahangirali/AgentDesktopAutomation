@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace AgentDesktopFramework.Pages
         {
             Driver = driver;
         }
+
+        [FindsBy(How = How.ClassName, Using = "button-back")] private IWebElement BackButton;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='title']")] private IWebElement TitleDropdown;
         [FindsBy(How = How.CssSelector, Using = "button[data-id='title'] + div ul li a span")] private IList<IWebElement> Titles;
         [FindsBy(How = How.Id, Using = "firstName")] private IWebElement FirstName;
@@ -33,77 +36,75 @@ namespace AgentDesktopFramework.Pages
         [FindsBy(How = How.Id, Using = "flightClubNumber")] private IWebElement FlightNumber;
         [FindsBy(How = How.CssSelector, Using = "button[data-container='customerSearchForm']")] private IWebElement SearchButton;
         [FindsBy(How = How.Id, Using = "clearCustomerSearchForm")] private IWebElement ClearButton;
-     
-        public CustomerSearchPage SelectTitle(string title)
+        [FindsBy(How = How.ClassName, Using = "call-button")] private IWebElement CallButton;
+
+
+        public  CustomerSearchPage SelectBackButton()
+        {
+            BackButton.Click();
+            return this;
+        }
+
+        private void SelectTitle(string title)
         {
             TitleDropdown.Click();
             ClickTitle(title);
-            return this;
         }
 
         private void ClickTitle(string title)
         {
             Titles.Single(e => e.Text == title).Click();
-
         }
 
-        public CustomerSearchPage EnterFirstName(string firstName)
+        private void EnterFirstName(string firstName)
         {
             FirstName.SendKeys(firstName + Keys.Tab);
-            return this;
         }
 
-        public CustomerSearchPage EnterLastName(string lastName)
+        private void EnterLastName(string lastName)
         {
             if (lastName != String.Empty)
             {
                 Surname.SendKeys(lastName + Keys.Tab);
             }
-            return this;
         }
 
-        public CustomerSearchPage SelectCountry(string country)
+        private void SelectCountry(string country)
         {
             CountryDropdown.Click();
             ClickCountry(country);
-           
-            return this;
         }
+
         private void ClickCountry(string country)
         {
             Country.Single(e => e.Text == country).Click();
-
         }
 
         private void EnterCountry(string country)
         {
             CountryDropdown.Click();
             CountryTextBox.SendKeys(country +Keys.Enter +Keys.Enter);
-
         }
-        public CustomerSearchPage EnterPostcode(string postcode)
+
+        private void EnterPostcode(string postcode)
         {
             Postcode.SendKeys(postcode + Keys.Tab);
-            return this;
         }
 
-        public CustomerSearchPage EnterEmail(string email)
+        private void EnterEmail(string email)
         {
             Email.SendKeys(email + Keys.Tab);
-            return this;
         }
 
 
-        public CustomerSearchPage EnterEJPlusNumber(string ejPlusNumber)
+        private void EnterEJPlusNumber(string ejPlusNumber)
         {
             EJPlusNumber.SendKeys(ejPlusNumber + Keys.Tab);
-            return this;
         }
 
-        public CustomerSearchPage EnterFlightNumber(string flightNumber)
+        private void EnterFlightNumber(string flightNumber)
         {
             FlightNumber.SendKeys(flightNumber + Keys.Tab);
-            return this;
         }
 
         public void ClickClearButton()
@@ -113,8 +114,13 @@ namespace AgentDesktopFramework.Pages
 
         private void ClickSearchButton()
         {
-            SearchButton.Click();
-            
+            SearchButton.Click();            
+        }
+
+        public CustomerSearchPage SelectCallButton()
+        {
+            CallButton.Click();
+            return this;
         }
 
         public CustomerSearchPage EnterCustomerSearchDetails(SearchforCustomer searchforCustomer)
@@ -131,7 +137,5 @@ namespace AgentDesktopFramework.Pages
             ClickSearchButton();
             return this;
         }
-
-      
     }
 }

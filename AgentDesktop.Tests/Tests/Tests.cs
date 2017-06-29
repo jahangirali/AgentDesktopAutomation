@@ -150,12 +150,24 @@ namespace AgentDesktopFramework.Tests
             bookingSearchPage.EnterBookingSearchDetailsBooker(new SearchForBooking());
 
         }
-        //[TearDown]
 
-       //public void TestTearDown() 
-       // {
-       //     driver?.Quit();
-       // }
+        [Test]
+        public void TestBackButtonInFindCustomer()
+        {
+            LoginPage loginPage = new LoginPage(driver);
+            MenuPage menuPage = loginPage.EnterLoginDetails(new UserLogin());
+            CustomerSearchPage customerSearchPage = menuPage.ClickCustomerSearch();
+
+            customerSearchPage.SelectBackButton();
+            customerSearchPage.SelectCallButton();
+        }
+
+        [TearDown]
+
+        public void TestTearDown()
+        {
+            driver?.Quit();
+        }
 
 
     }
